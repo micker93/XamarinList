@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Phoneword"
+             x:Class="Phoneword.MainPage">
+    <StackLayout>
+
+        <Entry x:Name="name" Placeholder="name" FontSize="10" ></Entry>
+
+        <Entry x:Name="age"  Placeholder="age" FontSize="10" Keyboard="Numeric" ></Entry>
+
+        <Entry x:Name="adress"  Placeholder="adress" FontSize="10"></Entry>
+        
+        <ListView x:Name="Testview" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" >
+                         
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Name:" FontSize="Large"/>
+                                <Label Text="{Binding DisplayName}" FontSize="Large"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Age:" FontSize="Large"/>
+                                <Label Text="{Binding Age}" FontSize="Large"/>
+                            </StackLayout>
+                        
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="adress:" FontSize="Large" />
+                                <Label Text="{Binding Adress}" FontSize="Large" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Time:" FontSize="Large"/>
+                                <Label Text="{Binding Time, StringFormat={d-MM-yyyy}}" FontSize="Large"/>
+                            </StackLayout>
+
+                            <Button Text="Delete" Clicked="Remove_Clicked" ></Button>
+                        </StackLayout>
+                    </ViewCell>                     
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            Text="Click"
+            Clicked="ButtonClick"
+            HorizontalOptions="Center">
+        </Button>
+        <Button
+            Text="Clear info"
+            Clicked="Clear_Entry"
+            HorizontalOptions="Center"
+            >
+        </Button>
+    </StackLayout>
+</ContentPage>
